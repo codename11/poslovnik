@@ -277,9 +277,7 @@ function MySerializeV2(phpdoc,e){
 		}
 	}
 	
-		//alert(lenx);
-		alert(uniqueNames);
-		alert(query);
+		
 	var xhttp = new XMLHttpRequest();
 	
 	xhttp.onreadystatechange = function() {
@@ -337,7 +335,7 @@ function uzim_vredx(phpdoc,input_id){
 	var strx=ajdi+","+ime+","+prezime+","+broj_clean+","+kategorija;
 	
 	if (strx.length == 0) { 
-		//alert("Niste popunili sva polja...");
+		alert("Niste popunili sva polja...");
 	}
 	
 	var xhttp = new XMLHttpRequest();
@@ -346,7 +344,7 @@ function uzim_vredx(phpdoc,input_id){
 		
 		if (this.readyState == 4 && this.status == 200) {
 			
-			//alert("Uspešno ste modifikovali unos...");	 
+			alert("Uspešno ste modifikovali unos...");	 
 			document.getElementById("imex").value = ime;
 			document.getElementById("prezimex").value = prezime;
 			document.getElementById("telx").value = broj_clean;
