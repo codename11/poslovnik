@@ -40,8 +40,6 @@ else if($ajdi!=""){
 	
 }
 
-//$sqlx="UPDATE osoba SET ime='$imey' WHERE id='$ajdi'";
-
 pristup($servername, $username, $password, $dbname, $sqlx);
 
 ?>
