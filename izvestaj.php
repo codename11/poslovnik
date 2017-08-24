@@ -38,12 +38,12 @@ include 'navbar.php';
 				<label>Sortiraj po:</label>
 				<select class="form-control" id="sort" name='sort'>
 					<option value=""></option>
-					<option value="1">ime rastuce</option>
-					<option value="2">ime opadajuce</option>
-					<option value="3">prezime rastuce</option>
-					<option value="4">prezime opadajuce</option>
-					<option value="5">broj rastuce</option>
-					<option value="6">broj opadajuce</option>
+					<option value="1">ime rastuće</option>
+					<option value="2">ime opadajuće</option>
+					<option value="3">prezime rastuće</option>
+					<option value="4">prezime opadajuće</option>
+					<option value="5">broj rastuće</option>
+					<option value="6">broj opadajuće</option>
 				</select>
 			</div>
 			
