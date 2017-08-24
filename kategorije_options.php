@@ -1,7 +1,5 @@
 <?php 
-include 'redirectOs.php';
-include 'redirectTb.php';
-include 'redirectTk.php';
+
 	$servername="localhost"; //ime/adresa/url servera
 	$username="root"; // ime korisnika koji pristupa serveru
 	$password=""; // pass za server

@@ -25,10 +25,9 @@ include 'navbar.php';
 	<div class="form-group col-xs-3">
 		
 			<label for="usr3">Broj telefona<span class="text-danger">*</span>:</label>
-			<input type="number" id="tel" class="form-control text-center" name="tel" min="0" oninput="javascript: if (this.value.length > this.maxLength) {alert('Ne može više od 10 cifara ...'); this.value = this.value.slice(0, this.maxLength);"
+			<input type="number" id="tel" class="form-control text-center" name="tel" min="0" oninput="javascript: if (this.value.length > this.maxLength) {alert('Ne može više od 10 cifara ...'); this.value = this.value.slice(0, this.maxLength);}"
 			maxlength = "10" placeholder="Unesite broj telefona ..." required>
-			
-    </div>
+			</div>
 
 	
 		<?php 

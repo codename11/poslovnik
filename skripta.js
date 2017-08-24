@@ -121,28 +121,41 @@ $(document).ready(function(){
 
 
 function uzim_vred(phpdoc){
+	
 	var ime = document.getElementById("ime").value;
 	var prezime = document.getElementById("prezime").value;
 	var broj = document.getElementById("tel").value;
 	var kategorija =  document.getElementById("sel").value;
-	var sort =  document.getElementById("sort").value;
-
-	var str=ime+","+prezime+","+broj+","+kategorija+","+sort;
 	
-	if (str.length == 0) { 
+	var srt=document.getElementById("sort");
+
+	if(srt===undefined || srt===null){
+		
+		var str=ime+","+prezime+","+broj+","+kategorija;
+		console.log('ne postoji!');
+	}
+	else if(srt!=undefined || srt!=null){
+		var sort =  srt.value;
+		var str=ime+","+prezime+","+broj+","+kategorija+","+sort;
+		console.log('postoji!');
+		
+	}
+
+	if (str.length == 0 &&(document.getElementById("raport")!=undefined || document.getElementById("raport")!=null)) { 
 		document.getElementById("raport").innerHTML = "";
 		return;
 	}
-
+	
 	var xhttp = new XMLHttpRequest();
 	
 	xhttp.onreadystatechange = function() {
     
-		document.getElementById("raport").innerHTML = this.responseText;
-		
-    
+		if(document.getElementById("raport")!=undefined || document.getElementById("raport")!=null){
+			document.getElementById("raport").innerHTML = this.responseText;
+		}
+	 
 	};
-  
+ 
 	xhttp.open("GET", phpdoc+"?str="+str, true);
 	xhttp.send();
 

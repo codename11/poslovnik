@@ -5,7 +5,7 @@ $username = "root";
 $password = "";
 $dbname = "poslovnik";
 
-$str=$_GET["str"];
+$str=$_GET["str"]; print_r($str);
 $arr=explode(',', $str);
 
 $ime=test_input($arr[0]);//Ime pr. Zika
