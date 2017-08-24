@@ -21,26 +21,26 @@ if ($_SERVER["REQUEST_METHOD"] == "GET"){
 
 }
 print_r($_GET["stry"]);
-//print_r($imex);
+//print_r($imey);
 
-/*if($ajdi!="" || ($imex=="" || $prezimex=="" || $brojx=="" || $kategorijax=="")){
+if($ajdi!="" && ($imey=="" || $prezimey=="" || $brojy=="" || $kategorijay=="")){
 	
 	$sqlx="
-	UPDATE osoba,tel_broj SET ime='$imex', prezime='$prezimex',broj='$brojx', 
-	kategorija_FK='$kategorijax' WHERE osoba.id='$ajdi' AND osoba_FK=osoba.id;
+	UPDATE osoba,tel_broj SET ime='$imey', prezime='$prezimey',broj='$brojy', 
+	kategorija_FK='$kategorijay' WHERE osoba.id='$ajdi' AND osoba_FK=osoba.id;
 	";
 	
 }
-else{
+else if($ajdi!=""){
 	
 	$sqlx="
-	UPDATE osoba,tel_broj SET ime='$imex', prezime='$prezimex',broj='$brojx', 
-	kategorija_FK='$kategorijax' WHERE osoba.id='$ajdi' AND osoba_FK=osoba.id;
+	UPDATE osoba,tel_broj SET ime='$imey', prezime='$prezimey',broj='$brojy', 
+	kategorija_FK='$kategorijay' WHERE osoba.id='$ajdi' AND osoba_FK=osoba.id;
 	;";
 	
-}*/
+}
 
-$sqlx="UPDATE osoba SET ime='$imey' WHERE id='$ajdi'";
+//$sqlx="UPDATE osoba SET ime='$imey' WHERE id='$ajdi'";
 
 pristup($servername, $username, $password, $dbname, $sqlx);
 
