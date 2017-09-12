@@ -54,6 +54,8 @@ include 'navbar.php';
 	</form>
 		
 </div>
-<div id="dmo"></div>
+
+
+
 </body>
 </html>

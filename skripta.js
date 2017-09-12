@@ -303,7 +303,22 @@ function uzim_vredx(phpdoc,input_id){
 	
 	var xt=document.getElementById("tabela").rows[input_id];
 	var row_text=xt.innerHTML;
-	ajdi=row_text.substring(59, 60);
+	
+		
+	
+		x1=Number(row_text.substring(59, 60));//Id-jevi od 0-9
+		x2=Number(row_text.substring(60, 62));//Id-jevi od 10-99
+		x3=Number(row_text.substring(61, 64));//Id-jevi od 100-999
+		x4=Number(row_text.substring(62, 66));//Id-jevi od 1000-9999
+	if(Number.isInteger(x1)){
+		ajdi=x1
+		alert(ajdi);
+	}
+	else if(Number.isInteger(x2)){
+		ajdi=x2
+		alert(ajdi);
+	}
+	
 	
 	var ime = xt.cells[1].innerHTML;
 	var prezime = xt.cells[2].innerHTML;
@@ -344,7 +359,7 @@ function uzim_vredx(phpdoc,input_id){
 		
 		if (this.readyState == 4 && this.status == 200) {
 			
-			alert("Uspešno ste modifikovali unos...");	 
+				 
 			document.getElementById("imex").value = ime;
 			document.getElementById("prezimex").value = prezime;
 			document.getElementById("telx").value = broj_clean;
@@ -380,7 +395,7 @@ function uzim_vredy(phpdoc){
 	var prezime = document.getElementById("prezimex").value;
 	var broj = document.getElementById("telx").value;
 	var kategorija =  document.getElementById("selx").value;
-
+alert(ajdi);
 	var stry=ajdi+","+ime+","+prezime+","+broj+","+kategorija;
 	
 	if (stry.length == 0) { 

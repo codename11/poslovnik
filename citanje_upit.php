@@ -144,7 +144,7 @@ switch ($sort) {
 	<tr id="<?php echo $br1;?>" class="brew" onclick='MySerialize("citanje_upit.php",this.id);'>
 		<td>
 			<label><?php echo $br1.". ";?><input type='checkbox' class='bx'  id="<?php echo $br;?>">
-				<span style="display:none"><?php echo $br;?></span>
+				<span id="spen" style="display:none"><?php echo $br;?></span>
 			</label>
 		</td>
 		<td id='ime'><?php echo $row["ime"]?></td>

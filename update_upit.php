@@ -6,7 +6,7 @@ $password = "";
 $dbname = "poslovnik";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET"){
-	if(isset($_GET["stry"])){
+	if(!empty($_GET["stry"])){
 	
 		$stry=$_GET["stry"];
 		$arry=explode(',', $stry);

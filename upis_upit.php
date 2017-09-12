@@ -5,7 +5,9 @@ $username = "root";
 $password = "";
 $dbname = "poslovnik";
 
-$str=$_GET["str"]; print_r($str);
+
+if(!empty($_GET["str"])){
+$str=$_GET["str"];
 $arr=explode(',', $str);
 
 $ime=test_input($arr[0]);//Ime pr. Zika
@@ -22,5 +24,5 @@ VALUES ('$broj', '$kategorija',(SELECT id FROM osoba WHERE id=(SELECT MAX(id) FR
 ";
 
 multi_pristup($servername, $username, $password, $dbname, $sql);
-
+}
 ?>
