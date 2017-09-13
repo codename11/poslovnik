@@ -296,30 +296,12 @@ function MySerializeV2(phpdoc,e){
 }
 
 var ajdi=0;
-function uzim_vredx(phpdoc,input_id){
-	
-	var x=document.getElementById(input_id).parentElement.nodeName;
+function uzim_vredx(phpdoc,person_id,row_id){
+	alert("person_id: "+person_id+", row_id: "+row_id);
+	var x=document.getElementById(person_id).parentElement.nodeName;
 	var y=x.id;
-	
-	var xt=document.getElementById("tabela").rows[input_id];
-	var row_text=xt.innerHTML;
-	
-		
-	
-		x1=Number(row_text.substring(59, 60));//Id-jevi od 0-9
-		x2=Number(row_text.substring(60, 62));//Id-jevi od 10-99
-		x3=Number(row_text.substring(61, 64));//Id-jevi od 100-999
-		x4=Number(row_text.substring(62, 66));//Id-jevi od 1000-9999
-	if(Number.isInteger(x1)){
-		ajdi=x1
-		alert(ajdi);
-	}
-	else if(Number.isInteger(x2)){
-		ajdi=x2
-		alert(ajdi);
-	}
-	
-	
+	ajdi=person_id;
+	var xt=document.getElementById("tabela").rows[row_id];
 	var ime = xt.cells[1].innerHTML;
 	var prezime = xt.cells[2].innerHTML;
 	var broj= xt.cells[3].innerHTML;
@@ -395,7 +377,7 @@ function uzim_vredy(phpdoc){
 	var prezime = document.getElementById("prezimex").value;
 	var broj = document.getElementById("telx").value;
 	var kategorija =  document.getElementById("selx").value;
-alert(ajdi);
+
 	var stry=ajdi+","+ime+","+prezime+","+broj+","+kategorija;
 	
 	if (stry.length == 0) { 

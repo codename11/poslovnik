@@ -142,7 +142,7 @@ switch ($sort) {
 	?>
 
 	<tr id="<?php echo $br1;?>" class="brew" onclick='MySerialize("citanje_upit.php",this.id);'>
-		<td>
+		<td id="<?php echo $br;?>">
 			<label><?php echo $br1.". ";?><input type='checkbox' class='bx'  id="<?php echo $br;?>">
 				<span id="spen" style="display:none"><?php echo $br;?></span>
 			</label>
@@ -151,7 +151,7 @@ switch ($sort) {
 		<td id='prezime'><?php echo $row["prezime"]?></td>
 		<td id='broj'><?php echo $row["broj"]?></td>
 		<td id='kategorija'><?php echo $row["kategorija"];?>
-	<button style='float:right' id='<?php echo $br1;?>' type='button' data-toggle="modal" data-target="#myModal" class='btn btn-info btn-xs' onclick='uzim_vredx("citanje_upit.php",this.id)'>Update</button>
+	<button style='float:right' id='<?php echo $br;?>' type='button' data-toggle="modal" data-target="#myModal" class='btn btn-info btn-xs' onclick='uzim_vredx("citanje_upit.php",<?php echo $br;?>,<?php echo $br1;?>)'>Update</button>
 	</td>
 	</tr>
 	
