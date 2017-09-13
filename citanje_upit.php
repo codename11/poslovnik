@@ -96,6 +96,10 @@ switch ($sort) {
 	$br1=0;
 	$result = pristup($servername, $username, $password, $dbname, $sql1);
 	$len = 0;
+	$row_cnt="SELECT COUNT(id) FROM osoba GROUP BY id";
+	$row_count = pristup($servername, $username, $password, $dbname, $row_cnt)->num_rows;
+	
+	$page_count=ceil($row_count/2);
 	
 	$rejl1 = "<div class='podaci'>
 	<table id='tabela' class='table table-hover table-bordered'>
@@ -116,7 +120,6 @@ switch ($sort) {
 	if ($result->num_rows > 0) {
     echo $rejl2;
 	
-	;
 	while($row = $result->fetch_assoc()) {
 		$br=$row["id"];
 		$br1++;
@@ -139,6 +142,8 @@ switch ($sort) {
 		}
 		$row["broj"]=$str1;
 		
+		
+		
 	?>
 
 	<tr id="<?php echo $br1;?>" class="brew" onclick='MySerialize("citanje_upit.php",this.id);'>
@@ -158,7 +163,7 @@ switch ($sort) {
 	
 	
 	<?php	
-		
+			
 		}
 		echo "</tbody>";
 	}
@@ -166,9 +171,31 @@ switch ($sort) {
      echo "0 results";
 }
 	echo "</table></div>";
-
-
-
+	
+	$br_str=0;
+	$marg_left="";
+	echo "</br>";
+		if(!empty($br1)){
+				echo "<a href='#' class='btn btn-info btn-md' style='margin-right: 3px;'>
+          <span class='glyphicon glyphicon-arrow-left' style='height: 16px'></span>
+        </a>";
+			for($i=0;$i<$br1;$i++){
+				if(is_int($i/2)){
+					$br_str++;
+					
+					if($br_str>=2){
+						$marg_left="margin-left: 3px;";
+					}
+					echo "<button style='$marg_left' type='button' id='$br_str' name='but' class='btn btn-info btn-sm podaci'>$br_str</button>";
+			
+				}
+			}
+	
+		}echo "<a href='#' class='btn btn-info btn-md' style='margin-left: 3px;'>
+          <span class='glyphicon glyphicon-arrow-right' style='height: 16px'></span>
+        </a>";
+	echo "</br>";	
+	echo "</br>";
 ?>
 
 <button type="button" style="color: black;" class='btn btn-default podaci' onclick="MySerializeV2('citanje_upit.php',this.e)">Potvrdi brisanje</button>

@@ -5,7 +5,7 @@ include 'navbar.php';
 ?>
 
 <div class="container-fluid text-center" style="font-family:Palatino Linotype;">
-	<form method="POST" id="F1" class="vcenter" autocomplete="on">
+	<form id="F1" class="vcenter" autocomplete="on">
 
 		<div class="row" id="aps">
 
@@ -49,10 +49,12 @@ include 'navbar.php';
 			
 		</div>
 		<button type="button" id="submit" style="margin-top: 10px" name="submit" class="btn btn-default" onclick="uzim_vred('citanje_upit.php')">Pošalji</button>
-		<div id="raport" style="margin-top: 1%;"></div>
+		<div id="raport" style="margin-top: 1%;">
+		
+		</div>
 		
 	</form>
-		
+
 </div>
 
 
