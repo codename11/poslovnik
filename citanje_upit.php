@@ -156,7 +156,7 @@ switch ($sort) {
 		<td id='prezime'><?php echo $row["prezime"]?></td>
 		<td id='broj'><?php echo $row["broj"]?></td>
 		<td id='kategorija'><?php echo $row["kategorija"];?>
-	<a href="citanje_upit.php?id=<?php echo $row['ime']; ?>"><button style='float:right' id='<?php echo $br;?>' type='button' data-toggle="modal" data-target="#myModal" class='btn btn-info btn-xs'>Update</button></a>
+	<button style='float:right' id='<?php echo $br;?>' type='button' data-toggle="modal" data-target="#myModal" class='btn btn-info btn-xs' onclick='uzim_vredx("citanje_upit.php",<?php echo $br;?>,<?php echo $br1;?>)'>Update</button>
 	</td>
 	</tr>
 	
@@ -221,7 +221,7 @@ switch ($sort) {
 			<div class="form-group col-sm-3">
 		
 				<label>Ime<span class="text-danger">*</span>:</label>
-				<input type="text" id="imex" class="form-control text-center" maxlength="30" name="imex" placeholder="Ime" value='<?php echo $_GET['ime'];?>'>
+				<input type="text" id="imex" class="form-control text-center" maxlength="30" name="imex" placeholder="Ime" value=''>
 			
 			</div>
 	
