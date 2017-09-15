@@ -6,7 +6,7 @@ $password = "";
 $dbname = "poslovnik";
 
 
-if(!empty($_GET["str"])){
+if(!empty($_GET["str"]) && isset($_GET["str"])){
 $str=$_GET["str"];
 $arr=explode(',', $str);
 

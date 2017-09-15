@@ -145,19 +145,25 @@ function uzim_vred(phpdoc){
 		document.getElementById("raport").innerHTML = "";
 		return;
 	}
+	alert(str.length);
 	
-	var xhttp = new XMLHttpRequest();
+	if(str.length!=0 && str!=",,,"){
+		
+		var xhttp = new XMLHttpRequest();
 	
-	xhttp.onreadystatechange = function() {
+		xhttp.onreadystatechange = function() {
     
-		if(document.getElementById("raport")!=undefined || document.getElementById("raport")!=null){
-			document.getElementById("raport").innerHTML = this.responseText;
-		}
+			if(document.getElementById("raport")!=undefined || document.getElementById("raport")!=null){
+				document.getElementById("raport").innerHTML = this.responseText;
+			}
 	 
-	};
+		};
  
-	xhttp.open("GET", phpdoc+"?str="+str, true);
-	xhttp.send();
+		xhttp.open("GET", phpdoc+"?str="+str, true);
+		xhttp.send();
+		
+	}
+	
 
 	
 }
