@@ -397,3 +397,20 @@ function uzim_vredy(phpdoc){
 	xhttp.send();
 	
 }
+
+function pagination(page,btn_id){
+	
+	var elems = document.querySelectorAll(".klasicax");
+
+[].forEach.call(elems, function(el) {
+    el.classList.add("klasicay");
+	el.classList.add("btn");
+	el.classList.add("btn-info");
+	el.classList.add("btn-sm");
+	el.classList.add("podaci");
+});
+	
+	document.getElementById(btn_id).className = "klasicax btn btn-info btn-sm podaci";
+	
+	
+}

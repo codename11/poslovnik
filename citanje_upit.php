@@ -186,8 +186,10 @@ switch ($sort) {
 					if($br_str>=2){
 						$marg_left="margin-left: 3px;";
 					}
-					echo "<button style='$marg_left' type='button' id='$br_str' name='but' class='btn btn-info btn-sm podaci'>$br_str</button>";
-			
+					?>
+					
+					<button style="<?php echo $marg_left?>" type="button" id="trash<?php echo $br_str?>" name='but' class="btn btn-info btn-sm podaci" onclick="pagination(<?php echo $br_str?>,this.id)"><?php echo $br_str?></button>
+			<?php
 				}
 			}
 	
