@@ -397,11 +397,35 @@ function uzim_vredy(phpdoc){
 	xhttp.send();
 	
 }
-
+var bx1=0;
+var bx2=0;
 function pagination(page,btn_id){
 	
+	var xt=document.getElementById("tabela").rows.length;
 	var elems = document.querySelectorAll(".klasicax");
-
+	var btn_subStr=btn_id.substring(5);
+	
+	bx1=(btn_subStr*2)-1;
+	bx2=btn_subStr*2;
+	b1="arthas"+bx1;
+	b2="arthas"+bx2;
+	
+	document.getElementById(b1).style.display="table-row";
+	document.getElementById(b2).style.display="table-row";
+	var rt1=document.getElementById("tabela");
+	var rt2=rt1.rows[0];
+	var rt3=rt2.id;
+	console.log(rt3);
+	for(var i=1;i<xt;i++){
+		
+		if(document.getElementById("arthas"+i).rowIndex!=document.getElementById(b1).rowIndex && document.getElementById("arthas"+i).rowIndex!=document.getElementById(b2).rowIndex){
+			document.getElementById("arthas"+i).style.display="none";
+		}
+		
+	}
+	
+	
+	
 [].forEach.call(elems, function(el) {
     el.classList.add("klasicay");
 	el.classList.add("btn");
@@ -411,6 +435,72 @@ function pagination(page,btn_id){
 });
 	
 	document.getElementById(btn_id).className = "klasicax btn btn-info btn-sm podaci";
+	
+	
+}
+
+function pag_arrow(input_id){
+	var xt=document.getElementById("tabela").rows.length-1;
+	var len_back=xt;
+	//alert(bx1+" , "+bx2);
+	if(input_id=="levo"){
+		
+		if(bx1==1 && bx2==2){
+				bx1=0;
+				bx2=0;
+		}
+		
+		if(bx1<(xt-1) && bx2<(xt) && bx1>0 && bx2>0){
+			
+			bx1=(bx1-2);
+			bx2=(bx2-2);
+			
+			//console.log("1arthas"+b1+" , "+"arthas"+b2);
+			document.getElementById("arthas"+bx1).style.display="table-row";
+			document.getElementById("arthas"+bx2).style.display="table-row";
+			document.getElementById("arthas"+(bx1+2)).style.display="none";
+			document.getElementById("arthas"+(bx2+2)).style.display="none";
+			
+		}
+		
+		if(bx1==(xt-1) && bx2==(xt)){
+			
+			bx1=(bx1-2);
+			bx2=(bx2-2);
+			//console.log("2arthas"+b1+" , "+"arthas"+b2);
+			document.getElementById("arthas"+bx1).style.display="table-row";
+			document.getElementById("arthas"+bx2).style.display="table-row";
+			document.getElementById("arthas"+(xt-1)).style.display="none";
+			document.getElementById("arthas"+xt).style.display="none";
+			
+		}
+		
+		if(bx1==0 && bx2==0){
+			
+			bx1=xt-1;
+			bx2=xt;
+			//console.log("3arthas"+b1+" , "+"arthas"+b2);
+			document.getElementById("arthas"+bx1).style.display="table-row";
+			document.getElementById("arthas"+bx2).style.display="table-row";
+			document.getElementById("arthas"+(xt-(xt-2))).style.display="none";
+			document.getElementById("arthas"+(xt-(xt-1))).style.display="none";
+			
+		}
+		
+		
+		
+		if((bx1>0 && bx2>0) && (bx1<(xt-1) && bx2<(xt)) && (bx1!=1 && bx2!=2)){
+			
+			bx1=(bx1);
+			bx2=(bx2);
+			
+			document.getElementById("arthas"+bx1).style.display="table-row";
+			document.getElementById("arthas"+bx2).style.display="table-row";
+			
+		}
+			
+	}
+		
 	
 	
 }

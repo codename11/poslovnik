@@ -142,11 +142,16 @@ switch ($sort) {
 		}
 		$row["broj"]=$str1;
 		
-		
+		if($br1<=2){
+			$pag_display="";
+		}
+		else{
+			$pag_display="display: none";
+		}
 		
 	?>
 
-	<tr id="<?php echo $br1;?>" class="brew" onclick='MySerialize("citanje_upit.php",this.id);'>
+	<tr id="arthas<?php echo $br1;?>" class="brew" style="<?php echo $pag_display;?>" onclick='MySerialize("citanje_upit.php",this.id);'>
 		<td id="<?php echo $br;?>">
 			<label><?php echo $br1.". ";?><input type='checkbox' class='bx'  id="<?php echo $br;?>">
 				<span id="spen" style="display:none"><?php echo $br;?></span>
@@ -176,7 +181,7 @@ switch ($sort) {
 	$marg_left="";
 	echo "</br>";
 		if(!empty($br1)){
-				echo "<a href='#' class='btn btn-info btn-md' style='margin-right: 3px;'>
+				echo "<a id='levo' class='btn btn-info btn-md' style='margin-right: 3px;' onclick='pag_arrow(this.id)'>
           <span class='glyphicon glyphicon-arrow-left' style='height: 16px'></span>
         </a>";
 			for($i=0;$i<$br1;$i++){
@@ -193,7 +198,7 @@ switch ($sort) {
 				}
 			}
 	
-		}echo "<a href='#' class='btn btn-info btn-md' style='margin-left: 3px;'>
+		}echo "<a id='desno' class='btn btn-info btn-md' style='margin-left: 3px;' onclick='pag_arrow(this.id)'>
           <span class='glyphicon glyphicon-arrow-right' style='height: 16px'></span>
         </a>";
 	echo "</br>";	
