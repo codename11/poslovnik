@@ -179,6 +179,7 @@ switch ($sort) {
 	
 	$br_str=0;
 	$marg_left="";
+	$klasicax="";
 	echo "</br>";
 		if(!empty($br1)){
 				echo "<a id='levo' class='btn btn-info btn-md' style='margin-right: 3px;' onclick='pag_arrow(this.id)'>
@@ -191,9 +192,17 @@ switch ($sort) {
 					if($br_str>=2){
 						$marg_left="margin-left: 3px;";
 					}
+					
+					if($br_str==1){
+						$klasicax=" klasicax";
+					}
+					else{
+						$klasicax="";
+					}
+					
 					?>
 					
-					<button style="<?php echo $marg_left?>" type="button" id="trash<?php echo $br_str?>" name='but' class="btn btn-info btn-sm podaci" onclick="pagination(<?php echo $br_str?>,this.id)"><?php echo $br_str?></button>
+					<button style="<?php echo $marg_left?>" type="button" id="trash<?php echo $br_str?>" name='but' class="btn btn-info btn-sm podaci<?php echo $klasicax ?>" onclick="pagination(<?php echo $br_str?>,this.id)"><?php echo $br_str?></button>
 			<?php
 				}
 			}

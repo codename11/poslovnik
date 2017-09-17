@@ -223,9 +223,10 @@ font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", G
 .bkfoot{
 padding-top: 20px;
 width: 100%;
-margin-top: 40px;
 border-top: 3px solid #b3b3b3;
 background-color: #999999;
+position:absolute;
+bottom:0;
 }
 
 textarea {

@@ -3,7 +3,6 @@ var w = window.outerWidth;
 var h = window.outerHeight;
 	
 $(document).ready(function(){
-
 	
 	if ($(window).width() < 768 && $(window).load()) {
 			$("#up").hide();
@@ -145,7 +144,7 @@ function uzim_vred(phpdoc){
 		document.getElementById("raport").innerHTML = "";
 		return;
 	}
-	alert(str.length);
+	//alert(str.length);
 	
 	if(str.length!=0 && str!=",,,"){
 		
@@ -303,7 +302,7 @@ function MySerializeV2(phpdoc,e){
 
 var ajdi=0;
 function uzim_vredx(phpdoc,person_id,row_id){
-	alert("person_id: "+person_id+", row_id: "+row_id);
+	//alert("person_id: "+person_id+", row_id: "+row_id);
 	var x=document.getElementById(person_id).parentElement.nodeName;
 	var y=x.id;
 	ajdi=person_id;
@@ -403,6 +402,7 @@ function uzim_vredy(phpdoc){
 	xhttp.send();
 	
 }
+
 var bx1=0;
 var bx2=0;
 function pagination(page,btn_id){
@@ -444,11 +444,29 @@ function pagination(page,btn_id){
 	
 	
 }
+var klik=0;
 
+if(bx1==0 && bx2==0){
+	bx1=1;
+	bx2=2;
+	klik=1;
+}
 function pag_arrow(input_id){
 	var xt=document.getElementById("tabela").rows.length-1;
+	
 	var len_back=xt;
-	//alert(bx1+" , "+bx2);
+	
+	var elems = document.querySelectorAll(".klasicax");
+		[].forEach.call(elems, function(el) {
+		el.classList.add("klasicay");
+		el.classList.add("btn");
+		el.classList.add("btn-info");
+		el.classList.add("btn-sm");
+		el.classList.add("podaci");
+		});
+	
+	
+	
 	if(input_id=="levo"){
 		
 		if(bx1==1 && bx2==2){
@@ -461,7 +479,6 @@ function pag_arrow(input_id){
 			bx1=(bx1-2);
 			bx2=(bx2-2);
 			
-			//console.log("1arthas"+b1+" , "+"arthas"+b2);
 			document.getElementById("arthas"+bx1).style.display="table-row";
 			document.getElementById("arthas"+bx2).style.display="table-row";
 			document.getElementById("arthas"+(bx1+2)).style.display="none";
@@ -473,7 +490,7 @@ function pag_arrow(input_id){
 			
 			bx1=(bx1-2);
 			bx2=(bx2-2);
-			//console.log("2arthas"+b1+" , "+"arthas"+b2);
+		
 			document.getElementById("arthas"+bx1).style.display="table-row";
 			document.getElementById("arthas"+bx2).style.display="table-row";
 			document.getElementById("arthas"+(xt-1)).style.display="none";
@@ -485,7 +502,7 @@ function pag_arrow(input_id){
 			
 			bx1=xt-1;
 			bx2=xt;
-			//console.log("3arthas"+b1+" , "+"arthas"+b2);
+			
 			document.getElementById("arthas"+bx1).style.display="table-row";
 			document.getElementById("arthas"+bx2).style.display="table-row";
 			document.getElementById("arthas"+(xt-(xt-2))).style.display="none";
@@ -504,9 +521,65 @@ function pag_arrow(input_id){
 			document.getElementById("arthas"+bx2).style.display="table-row";
 			
 		}
-			
-	}
 		
+		
+			
+		if(document.getElementById("trash"+(bx2/2))!=null){
+			document.getElementById("trash"+(bx2/2)).className = "klasicax btn btn-info btn-sm podaci";
+		}
+	}
 	
 	
+	if(input_id=="desno"){
+			
+		klik++;
+		
+		if(bx1>0 && bx2>0 && klik>1){
+			
+			if(document.getElementById("arthas"+bx1)!=null && document.getElementById("arthas"+bx2)!=null){
+				
+				document.getElementById("arthas"+bx1).style.display="none";
+				document.getElementById("arthas"+bx2).style.display="none";
+				
+			}
+			
+			bx1+=2;
+			bx2+=2;
+			
+			if(document.getElementById("arthas"+bx1)!=null && document.getElementById("arthas"+bx2)!=null){
+				
+				document.getElementById("arthas"+bx1).style.display="table-row";
+				document.getElementById("arthas"+bx2).style.display="table-row";
+				
+			}
+			
+		}
+		
+		if(bx1>(xt-1) && bx2>xt){
+			bx1=1;
+			bx2=2;
+			
+			
+			if(bx1==1 & bx2==2){
+				klik=1;
+				if(document.getElementById("arthas"+bx1)!=null || document.getElementById("arthas"+bx2)!=null){
+					document.getElementById("arthas"+bx1).style.display="table-row";
+					document.getElementById("arthas"+bx2).style.display="table-row";
+				}
+				
+			}
+			
+		}
+
+			
+		if(document.getElementById("trash"+(bx2/2))!=null){
+			document.getElementById("trash"+(bx2/2)).className = "klasicax btn btn-info btn-sm podaci";
+		}
+		
+		
+	}
+
+	
+		
+	console.log(bx1+" , "+bx2+" , "+klik);
 }
