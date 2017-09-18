@@ -403,8 +403,8 @@ function uzim_vredy(phpdoc){
 	
 }
 
-var bx1=0;
-var bx2=0;
+var bx1=1;
+var bx2=2;
 function pagination(page,btn_id){
 	
 	var xt=document.getElementById("tabela").rows.length;
@@ -418,10 +418,7 @@ function pagination(page,btn_id){
 	
 	document.getElementById(b1).style.display="table-row";
 	document.getElementById(b2).style.display="table-row";
-	var rt1=document.getElementById("tabela");
-	var rt2=rt1.rows[0];
-	var rt3=rt2.id;
-	console.log(rt3);
+	
 	for(var i=1;i<xt;i++){
 		
 		if(document.getElementById("arthas"+i).rowIndex!=document.getElementById(b1).rowIndex && document.getElementById("arthas"+i).rowIndex!=document.getElementById(b2).rowIndex){
@@ -444,13 +441,7 @@ function pagination(page,btn_id){
 	
 	
 }
-var klik=0;
 
-if(bx1==0 && bx2==0){
-	bx1=1;
-	bx2=2;
-	klik=1;
-}
 function pag_arrow(input_id){
 	var xt=document.getElementById("tabela").rows.length-1;
 	
@@ -532,9 +523,9 @@ function pag_arrow(input_id){
 	
 	if(input_id=="desno"){
 			
-		klik++;
+	
 		
-		if(bx1>0 && bx2>0 && klik>1){
+		if(bx1>0 && bx2>0){
 			
 			if(document.getElementById("arthas"+bx1)!=null && document.getElementById("arthas"+bx2)!=null){
 				
@@ -561,7 +552,7 @@ function pag_arrow(input_id){
 			
 			
 			if(bx1==1 & bx2==2){
-				klik=1;
+				
 				if(document.getElementById("arthas"+bx1)!=null || document.getElementById("arthas"+bx2)!=null){
 					document.getElementById("arthas"+bx1).style.display="table-row";
 					document.getElementById("arthas"+bx2).style.display="table-row";
@@ -581,5 +572,5 @@ function pag_arrow(input_id){
 
 	
 		
-	console.log(bx1+" , "+bx2+" , "+klik);
+	console.log(bx1+" , "+bx2);
 }
