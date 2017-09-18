@@ -411,6 +411,8 @@ function pagination(page,btn_id){
 	var elems = document.querySelectorAll(".klasicax");
 	var btn_subStr=btn_id.substring(5);
 	
+	if(((xt-1)%2)==0){
+	
 	bx1=(btn_subStr*2)-1;
 	bx2=btn_subStr*2;
 	b1="arthas"+bx1;
@@ -439,14 +441,14 @@ function pagination(page,btn_id){
 	
 	document.getElementById(btn_id).className = "klasicax btn btn-info btn-sm podaci";
 	
-	
 }
+}
+
+
 
 function pag_arrow(input_id){
 	var xt=document.getElementById("tabela").rows.length-1;
-	
-	var len_back=xt;
-	
+
 	var elems = document.querySelectorAll(".klasicax");
 		[].forEach.call(elems, function(el) {
 		el.classList.add("klasicay");
@@ -456,7 +458,7 @@ function pag_arrow(input_id){
 		el.classList.add("podaci");
 		});
 	
-	
+	if((xt%2)==0){
 	
 	if(input_id=="levo"){
 		
@@ -522,8 +524,6 @@ function pag_arrow(input_id){
 	
 	
 	if(input_id=="desno"){
-			
-	
 		
 		if(bx1>0 && bx2>0){
 			
@@ -573,4 +573,5 @@ function pag_arrow(input_id){
 	
 		
 	console.log(bx1+" , "+bx2);
+}
 }

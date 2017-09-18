@@ -31,6 +31,8 @@ $_SESSION["broj"] = "";
 	<script src="skripta.js"></script>
 	<script src="indicatorsofcarousel.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 	</head>
 <body>
 <?php
