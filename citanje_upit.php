@@ -1,4 +1,3 @@
-
 <?php
 include 'funkcije.php';
 $servername = "localhost";

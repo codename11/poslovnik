@@ -4,6 +4,8 @@ var h = window.outerHeight;
 	
 $(document).ready(function(){
 	
+
+	
 	if ($(window).width() < 768 && $(window).load()) {
 			$("#up").hide();
 			$("#nav").addClass("navbar-static-top");
@@ -55,7 +57,7 @@ $(document).ready(function(){
 		
     });
 	
-    $('[data-toggle="tooltip"]').tooltip();
+    
 	
 	 $(function(){ //Odavde
   var current_page_URL = location.href;
@@ -118,8 +120,14 @@ $(document).ready(function(){
 
 });
 
-
+var bx1=1;
+var bx2=2;
 function uzim_vred(phpdoc){
+	
+	if(bx1>1 && bx2>2){
+		bx1=1;
+		bx2=2;
+	}
 	
 	var ime = document.getElementById("ime").value;
 	var prezime = document.getElementById("prezime").value;
@@ -403,16 +411,15 @@ function uzim_vredy(phpdoc){
 	
 }
 
-var bx1=1;
-var bx2=2;
+
 function pagination(page,btn_id){
 	
 	var xt=document.getElementById("tabela").rows.length;
 	var elems = document.querySelectorAll(".klasicax");
 	var btn_subStr=btn_id.substring(5);
 	
-	if(((xt-1)%2)==0){
-	
+	if(((xt-1)%2)==0){// Checking for even number of records displayed in table excluding first <tr>(row) that containes <th>'s. By default, it shows odd number of rows because also counts row with <th>'s. 
+	//alert("even");
 	bx1=(btn_subStr*2)-1;
 	bx2=btn_subStr*2;
 	b1="arthas"+bx1;
@@ -438,10 +445,61 @@ function pagination(page,btn_id){
 	el.classList.add("btn-sm");
 	el.classList.add("podaci");
 });
-	
+	//console.log(bx1+" , "+bx2);
 	document.getElementById(btn_id).className = "klasicax btn btn-info btn-sm podaci";
 	
 }
+
+if((xt%2)==0){ // Checking for odd number of records displayed in table excluding first <tr>(row) that containes <th>'s. By default, it shows odd number of rows because also counts row with <th>'s.
+	//alert("odd");
+		bx1=(btn_subStr*2)-1;
+		bx2=btn_subStr*2;
+		b1="arthas"+bx1;
+		b2="arthas"+bx2;
+	
+	if((bx1%2)!=0){
+		bx1=(btn_subStr*2)-1;
+		document.getElementById(b1).style.display="table-row";
+		
+		for(var i=1;i<xt;i++){
+		
+			if(document.getElementById("arthas"+i).rowIndex!=document.getElementById(b1).rowIndex){
+				document.getElementById("arthas"+i).style.display="none";
+			}
+		
+		}
+		
+	}
+	
+	if(document.getElementById(b1)!=null && document.getElementById(b2)!=null){
+		document.getElementById(b1).style.display="table-row";
+		document.getElementById(b2).style.display="table-row";
+	}
+	
+	if((bx1%2)==0){
+		
+		for(var i=1;i<xt;i++){
+		
+		if(document.getElementById("arthas"+i).rowIndex!=document.getElementById(b1).rowIndex && document.getElementById("arthas"+i).rowIndex!=document.getElementById(b2).rowIndex){
+			document.getElementById("arthas"+i).style.display="none";
+		}
+		
+	}
+		
+	}
+
+[].forEach.call(elems, function(el) {
+    el.classList.add("klasicay");
+	el.classList.add("btn");
+	el.classList.add("btn-info");
+	el.classList.add("btn-sm");
+	el.classList.add("podaci");
+});
+	//console.log(bx1+" , "+bx2);
+	document.getElementById(btn_id).className = "klasicax btn btn-info btn-sm podaci";
+}
+
+console.log(bx1+" , "+bx2);
 }
 
 
