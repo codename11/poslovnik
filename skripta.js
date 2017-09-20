@@ -300,6 +300,8 @@ function MySerializeV2(phpdoc,e){
 				$("#raport").load(phpdoc);
 			});
 			
+			uzim_vred("citanje_upit.php");
+			
 		}
 	};
 	
@@ -445,7 +447,7 @@ function pagination(page,btn_id){
 	el.classList.add("btn-sm");
 	el.classList.add("podaci");
 });
-	//console.log(bx1+" , "+bx2);
+	
 	document.getElementById(btn_id).className = "klasicax btn btn-info btn-sm podaci";
 	
 }
@@ -495,11 +497,12 @@ if((xt%2)==0){ // Checking for odd number of records displayed in table excludin
 	el.classList.add("btn-sm");
 	el.classList.add("podaci");
 });
-	//console.log(bx1+" , "+bx2);
+	
 	document.getElementById(btn_id).className = "klasicax btn btn-info btn-sm podaci";
 }
 
 console.log(bx1+" , "+bx2);
+
 }
 
 
@@ -630,6 +633,137 @@ function pag_arrow(input_id){
 
 	
 		
-	console.log(bx1+" , "+bx2);
+	
 }
+
+	if((xt%2)!=0){ // Regulise strelice za neparan broj unosa iz baze.
+	
+		if(input_id=="levo"){
+			
+			if(bx1==1 && bx2==2){
+				bx1=0;
+				bx2=0;
+			}
+	
+			if(bx1<=(xt-2) && bx2<=(xt-1) && bx1>=3 && bx2>=4){
+				
+				bx1-=2;
+				bx2-=2;
+				
+				if(document.getElementById("arthas"+bx1)!=null && document.getElementById("arthas"+bx2)!=null){
+					document.getElementById("arthas"+bx1).style.display="table-row";
+					document.getElementById("arthas"+bx2).style.display="table-row";
+					document.getElementById("arthas"+(bx1+2)).style.display="none";
+					document.getElementById("arthas"+(bx2+2)).style.display="none";
+				}
+				
+			
+			}
+	
+			if(bx1==xt && bx2==0){
+				
+				if(document.getElementById("arthas"+bx1)!=null){
+					document.getElementById("arthas"+bx1).style.display="none";
+				}
+				
+				bx1=(xt-2);
+				bx2=(xt-1);
+				
+				if(document.getElementById("arthas"+bx1)!=null && document.getElementById("arthas"+bx2)!=null){
+					document.getElementById("arthas"+bx1).style.display="table-row";
+					document.getElementById("arthas"+bx2).style.display="table-row";
+				}
+				
+				
+			}
+	
+			if(bx1==0 && bx2==0){
+				
+					document.getElementById("arthas"+(xt-(xt-2))).style.display="none";
+					document.getElementById("arthas"+(xt-(xt-1))).style.display="none";
+				
+				
+				bx1=xt;
+				if(document.getElementById("arthas"+bx1)!=null){
+					document.getElementById("arthas"+bx1).style.display="table-row";
+				}
+				
+			
+			}
+			
+			if(document.getElementById("trash"+Math.ceil(bx1/2))!=null){
+				document.getElementById("trash"+Math.ceil(bx1/2)).className = "klasicax btn btn-info btn-sm podaci";
+			}
+		}
+		
+		if(input_id=="desno"){
+		
+		if(bx1>0 && bx2>0){
+			
+			if(document.getElementById("arthas"+bx1)!=null && document.getElementById("arthas"+bx2)!=null){
+				
+				document.getElementById("arthas"+bx1).style.display="none";
+				document.getElementById("arthas"+bx2).style.display="none";
+				
+			}
+			
+			bx1+=2;
+			bx2+=2;
+			
+			if(document.getElementById("arthas"+bx1)!=null && document.getElementById("arthas"+bx2)!=null){
+				
+				document.getElementById("arthas"+bx1).style.display="table-row";
+				document.getElementById("arthas"+bx2).style.display="table-row";
+				
+			}
+			
+		}
+		
+		if(bx1>(xt-1) && bx1!=xt){
+		
+			bx1=1;
+			bx2=2;
+			
+			
+			if(bx1==1 & bx2==2){
+				
+				document.getElementById("arthas"+xt).style.display="none";
+				
+				if(document.getElementById("arthas"+bx1)!=null || document.getElementById("arthas"+bx2)!=null){
+					document.getElementById("arthas"+bx1).style.display="table-row";
+					document.getElementById("arthas"+bx2).style.display="table-row";
+				}
+				
+			}
+			
+		}
+		
+		if(bx1==xt){
+			
+				if(document.getElementById("arthas"+bx1)!=null && document.getElementById("arthas"+bx2)!=null){
+				
+					document.getElementById("arthas"+(xt-2)).style.display="none";
+					document.getElementById("arthas"+(xt-1)).style.display="none";
+				
+				}
+				
+				if(document.getElementById("arthas"+bx1)!=null){
+					
+					document.getElementById("arthas"+bx1).style.display="table-row";
+	
+				}
+				
+		}
+
+			
+		if(document.getElementById("trash"+(bx2/2))!=null){
+			document.getElementById("trash"+(bx2/2)).className = "klasicax btn btn-info btn-sm podaci";
+		}
+		
+		
+	}
+		
+	}
+
+	console.log(bx1+" , "+bx2);
 }
