@@ -3,8 +3,34 @@ var w = window.outerWidth;
 var h = window.outerHeight;
 	
 $(document).ready(function(){
-	 $('[data-toggle="tooltip"]').tooltip();
-	$('#example').DataTable();	
+	
+	$('[data-toggle="tooltip"]').tooltip();
+	
+	$('#example').DataTable( {
+        "pagingType": "full_numbers",
+		"language": {
+            "lengthMenu": "Prikaži _MENU_ unosa po strani",
+            "zeroRecords": "Nula unosa je prikazano ...",
+            "info": "Prikazana je _PAGE_ od _PAGES_ strane",
+            "infoEmpty": "Ne postoje unosi ...",
+            "infoFiltered": "(filterovano je od ukupnih _MAX_ unosa)",
+			"emptyTable":     "Prazna tabela",
+			"loadingRecords": "Učitavam unose ...",
+			"processing":     "Procesiram ...",
+			"search":         "Pretraži:",
+			"paginate": {
+				"first":      "Prva",
+				"last":       "Poslednja",
+				"next":       "Sledeća",
+				"previous":   "Prethodna"
+			}
+        }
+		
+    } );
+	
+	
+	
+
 	
 	if ($(window).width() < 768 && $(window).load()) {
 			$("#up").hide();
