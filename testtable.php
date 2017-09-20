@@ -1,21 +1,3 @@
-<html>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css">
-<script src="//cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-
-<script>
-$(document).ready(function(){
-	
-    $('#example').DataTable();	
-	
-});
-</script>
-</head>
-
 <?php 
 
 
@@ -132,5 +114,3 @@ echo "<table id='example' class='display' width='100%' cellspacing='0'>
 			echo "</tbody></table>";
 			
 ?>
-
-</html>

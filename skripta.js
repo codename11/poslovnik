@@ -3,8 +3,8 @@ var w = window.outerWidth;
 var h = window.outerHeight;
 	
 $(document).ready(function(){
-	
-
+	 $('[data-toggle="tooltip"]').tooltip();
+	$('#example').DataTable();	
 	
 	if ($(window).width() < 768 && $(window).load()) {
 			$("#up").hide();
@@ -57,7 +57,7 @@ $(document).ready(function(){
 		
     });
 	
-    
+   
 	
 	 $(function(){ //Odavde
   var current_page_URL = location.href;
