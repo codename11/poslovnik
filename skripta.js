@@ -28,10 +28,6 @@ $(document).ready(function(){
 		
     } );
 	
-	
-	
-
-	
 	if ($(window).width() < 768 && $(window).load()) {
 			$("#up").hide();
 			$("#nav").addClass("navbar-static-top");
@@ -326,7 +322,7 @@ function MySerializeV2(phpdoc,e){
 				$("#raport").load(phpdoc);
 			});
 			
-			uzim_vred("citanje_upit.php");
+			location.reload();
 			
 		}
 	};
@@ -792,4 +788,79 @@ function pag_arrow(input_id){
 	}
 
 	console.log(bx1+" , "+bx2);
+}
+
+var pr_id=0;
+function uzim_vredxV2(phpdoc,person_id,row_id, ime, prezime, broj, kategorija){
+	
+	var strx=person_id+","+ime+","+prezime+","+broj+","+kategorija;
+	
+	if (strx.length == 0) { 
+		alert("Niste popunili sva polja...");
+	}
+	
+	var xhttp = new XMLHttpRequest();
+	
+	xhttp.onreadystatechange = function() {
+		
+		if (this.readyState == 4 && this.status == 200) {
+			
+				 
+			document.getElementById("imex").value = ime;
+			document.getElementById("prezimex").value = prezime;
+			document.getElementById("telx").value = broj;
+			
+			if(kategorija=="fiksni"){
+				
+				document.getElementById("telx1").value = 2;
+				document.getElementById("telx2").value = 1;
+				document.getElementById("telx1").innerHTML = "fiksni";
+				document.getElementById("telx2").innerHTML = "mobilni";
+				
+			}
+			else if(kategorija=="mobilni"){
+				
+				document.getElementById("telx1").value = 1;
+				document.getElementById("telx2").value = 2;
+				document.getElementById("telx1").innerHTML = "mobilni";
+				document.getElementById("telx2").innerHTML = "fiksni";
+				
+			}
+			
+		}
+		
+	};
+	
+	xhttp.open("GET", phpdoc+"?strx="+strx, true);
+	xhttp.send();
+	pr_id=person_id;
+}
+
+function uzim_vredyV2(phpdoc){
+	
+	var ime = document.getElementById("imex").value;
+	var prezime = document.getElementById("prezimex").value;
+	var broj = document.getElementById("telx").value;
+	var kategorija =  document.getElementById("selx").value;
+
+	var stry=pr_id+","+ime+","+prezime+","+broj+","+kategorija;
+	
+	if (stry.length == 0) { 
+		
+	}
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+    
+		if (this.readyState == 4 && this.status == 200) {
+			location.reload();
+			
+			
+		}
+    
+	};
+
+	xhttp.open("GET", phpdoc+"?stry="+stry, true);
+	xhttp.send();
+	
 }
