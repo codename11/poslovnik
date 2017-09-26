@@ -40,6 +40,6 @@ include 'navbar.php';
 	</form>
 </div>
 <div id="dix"></div>
-
+<div id="footer" style="min-height:100%;position:relative;"><?php include 'footer.php';?></div>
 </body>
 </html>
