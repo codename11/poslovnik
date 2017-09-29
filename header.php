@@ -2,7 +2,7 @@
 if(!defined('MyConst1')) {
    die('Direct access not permitted');
 }
-include 'funkcije.php';
+
 
 session_start();
 

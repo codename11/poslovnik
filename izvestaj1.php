@@ -2,6 +2,7 @@
 define('MyConst1', TRUE);
 include 'header.php';
 include 'navbar.php';
+include 'funkcije.php';
 ?>
 
 <div class="container-fluid text-center" style="font-family:Palatino Linotype;">

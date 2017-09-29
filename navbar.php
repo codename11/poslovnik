@@ -21,7 +21,7 @@ if(!defined('MyConst1')) {
           <ul class="dropdown-menu">
             <li><a href="izvestaj.php" data-toggle="tooltip" data-placement="right" title="Izveštaj 1" onclick="opkat('izvestaj.php')">Izveštaj 1</a></li>
 			<li><a href="izvestaj1.php"  data-toggle="tooltip" data-placement="right" title="Izveštaj 2" onclick="opkat('izvestaj1.php')">Izveštaj 2</a></li>
-		
+			<li><a href="izvestaj2.php"  data-toggle="tooltip" data-placement="right" title="Izveštaj 3" onclick="opkat('izvestaj2.php')">Izveštaj 3</a></li>
           </ul>
         </li>
 		

@@ -666,6 +666,11 @@ function pag_arrow(input_id){
 				bx1=0;
 				bx2=0;
 			}
+			
+			if(bx1==xt && bx2==(xt+1)){
+				bx1=xt;
+				bx2=0;
+			}
 	
 			if(bx1<=(xt-2) && bx2<=(xt-1) && bx1>=3 && bx2>=4){
 				
@@ -716,6 +721,7 @@ function pag_arrow(input_id){
 			if(document.getElementById("trash"+Math.ceil(bx1/2))!=null){
 				document.getElementById("trash"+Math.ceil(bx1/2)).className = "klasicax btn btn-info btn-sm podaci";
 			}
+			
 		}
 		
 		if(input_id=="desno"){
@@ -863,4 +869,31 @@ function uzim_vredyV2(phpdoc){
 	xhttp.open("GET", phpdoc+"?stry="+stry, true);
 	xhttp.send();
 	
+}
+
+function myfunk(phpdoc,btn_val, limit){
+	
+	var offset=(limit*btn_val)-limit;
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+    
+		if (this.readyState == 4 && this.status == 200) {
+			
+			
+			document.getElementById("demo").innerHTML =this.responseText;
+      
+		}
+
+	};
+	xhttp.open("GET", phpdoc+"?strn1="+limit, true);
+	xhttp.open("GET", phpdoc+"?strn="+offset, true);
+	
+	xhttp.send();
+
+	
+}
+
+function pag_arrow_lim(input_id){
+	alert(input_id);
 }
