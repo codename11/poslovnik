@@ -898,8 +898,8 @@ function myfunk(phpdoc,btn_val,limit){
 		}
 
 	};
-	xhttp.open("GET", phpdoc+"?strn1="+limit, true);
-	xhttp.open("GET", phpdoc+"?strn="+offset, true);
+	xhttp.open("GET", phpdoc+"?strn1="+limit+"&strn="+offset, true);
+	
 	
 	xhttp.send();
 		
@@ -910,26 +910,24 @@ console.log(klik);
 
 function pag_arrow_lim(phpdoc,input_id,limit){
 	var x = document.getElementById("jork").childElementCount;
-	
-
-
-
-	klik++;
-	console.log(klik);
 
 	if(input_id=="levo"){
-		//console.log(klik);
-		
-		offset=(x-klik)*limit;
-		if(klik==x){
-			klik=0;
+
+		klik--;
+
+
+		if(klik<0){
+			klik=(x-1);
 		}
-		
+		offset=limit*klik;
+
 	}
 	
 	if(input_id=="desno"){
-		//console.log(klik);
-		if(klik==x){
+	
+		klik++;
+
+		if(klik>(x-1)){
 			klik=0;
 		}
 		
@@ -946,13 +944,24 @@ function pag_arrow_lim(phpdoc,input_id,limit){
 			
 			
 			document.getElementById("demo").innerHTML =this.responseText;
+			
+			/*var elems = document.querySelectorAll(".klasicax");
+			[].forEach.call(elems, function(el) {
+				el.classList.add("klasicay");
+				el.classList.add("btn");
+				el.classList.add("btn-info");
+				el.classList.add("btn-sm");
+				el.classList.add("podaci");
+			});
+	
+			document.getElementById("trash"+klik).className = "klasicax btn btn-info btn-sm podaci";*/
       
 		}
 
 	};
-	xhttp.open("GET", phpdoc+"?strn1="+limit, true);
-	xhttp.open("GET", phpdoc+"?strn="+offset, true);
-	
+
+	xhttp.open("GET", phpdoc+"?strn1="+limit+"&strn="+offset, true);
+
 	xhttp.send();
-	
+	console.log(klik);
 }

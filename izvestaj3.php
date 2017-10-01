@@ -6,10 +6,8 @@ $username = "root";
 $password = "";
 $dbname = "poslovnik";
 
-	$row_cnt="SELECT COUNT(id) FROM osoba GROUP BY id";
+	$row_cnt="SELECT COUNT(id) FROM tel_broj GROUP BY id";
 	$row_count = pristup($servername, $username, $password, $dbname, $row_cnt)->num_rows;
-
-	
 	
 	if(isset($_GET["strn"])){
 		$offset=$_GET["strn"];
@@ -23,10 +21,12 @@ $dbname = "poslovnik";
 	if(isset($_GET["strn1"])){
 		$limit=$_GET["strn1"];
 		$page_count=ceil($row_count/$limit);
+		//echo $row_count;
 	}
 	else{
 		$limit=5;//Default limit
 		$page_count=ceil($row_count/$limit);
+		//echo $row_count;
 	}
 
 $sql="SELECT osoba.id,ime, prezime, tel_broj.broj, tel_kategorija.kategorija
