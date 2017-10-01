@@ -4,7 +4,7 @@ include 'header.php';
 include 'navbar.php';
 
 ?>
-<div  class="container-fluid text-center" id="demo">
+<div class="container-fluid text-center" id="demo">
 <?php 
 
 include 'izvestaj3.php';

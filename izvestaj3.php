@@ -89,22 +89,29 @@ AND tel_broj.kategorija_FK=tel_kategorija.id LIMIT $limit OFFSET $offset";
 	$klasicax="";
 	echo "</br>";
 		if(!empty($br1)){
-				echo "<a id='levo' class='btn btn-info btn-md' style='margin-right: 3px;' onclick='pag_arrow_lim(this.id)'>
+	?>
+	
+				<a id='levo' class='btn btn-info btn-md' style='margin-right: 3px;' onclick="pag_arrow_lim('izvestaj3.php',this.id,5)">
           <span class='glyphicon glyphicon-arrow-left' style='height: 16px'></span>
-        </a>";
-		
+        </a>
+		<?php 
 		$br_str=0;
+		echo "<span id='jork'>";
 			for($i=0;$i<$page_count;$i++){
 					$br_str++;
 					?>
 					
 					<button style="<?php echo $marg_left?>" type="button" id="trash<?php echo $br_str?>" name='but' class="btn btn-info btn-sm podaci<?php echo $klasicax ?>" onclick="myfunk('izvestaj3.php',<?php echo $br_str?>, 5)"><?php echo $br_str?></button>
+					
 			<?php
 			}
-	
-		}echo "<a id='desno' class='btn btn-info btn-md' style='margin-left: 3px;' onclick='pag_arrow_lim(this.id)'>
+		echo "</span>";
+		}
+		?>
+		<a id='desno' class='btn btn-info btn-md' style='margin-left: 3px;' onclick="pag_arrow_lim('izvestaj3.php',this.id,5)">
           <span class='glyphicon glyphicon-arrow-right' style='height: 16px'></span>
-        </a>";
+        </a>
+	<?php
 	echo "</br>";	
 	echo "</br>";
 ?> 

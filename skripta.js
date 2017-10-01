@@ -871,9 +871,73 @@ function uzim_vredyV2(phpdoc){
 	
 }
 
-function myfunk(phpdoc,btn_val, limit){
+var offset=0;
+var klik=0;
+function myfunk(phpdoc,btn_val,limit){
 	
-	var offset=(limit*btn_val)-limit;
+	offset=(limit*btn_val)-limit;
+	klik=(btn_val-1);
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+    
+		if (this.readyState == 4 && this.status == 200) {
+			
+			
+			document.getElementById("demo").innerHTML =this.responseText;
+			
+			var elems = document.querySelectorAll(".klasicax");
+			[].forEach.call(elems, function(el) {
+				el.classList.add("klasicay");
+				el.classList.add("btn");
+				el.classList.add("btn-info");
+				el.classList.add("btn-sm");
+				el.classList.add("podaci");
+			});
+	
+			document.getElementById("trash"+btn_val).className = "klasicax btn btn-info btn-sm podaci";
+		}
+
+	};
+	xhttp.open("GET", phpdoc+"?strn1="+limit, true);
+	xhttp.open("GET", phpdoc+"?strn="+offset, true);
+	
+	xhttp.send();
+		
+console.log(klik);
+	
+}
+
+
+function pag_arrow_lim(phpdoc,input_id,limit){
+	var x = document.getElementById("jork").childElementCount;
+	
+
+
+
+	klik++;
+	console.log(klik);
+
+	if(input_id=="levo"){
+		//console.log(klik);
+		
+		offset=(x-klik)*limit;
+		if(klik==x){
+			klik=0;
+		}
+		
+	}
+	
+	if(input_id=="desno"){
+		//console.log(klik);
+		if(klik==x){
+			klik=0;
+		}
+		
+		offset=limit*klik;
+		
+	}
+	
+	
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -890,10 +954,5 @@ function myfunk(phpdoc,btn_val, limit){
 	xhttp.open("GET", phpdoc+"?strn="+offset, true);
 	
 	xhttp.send();
-
 	
-}
-
-function pag_arrow_lim(input_id){
-	alert(input_id);
 }
