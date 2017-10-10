@@ -945,7 +945,7 @@ function pag_arrow_lim(phpdoc,input_id,limit){
 			
 			document.getElementById("demo").innerHTML =this.responseText;
 			
-			/*var elems = document.querySelectorAll(".klasicax");
+			var elems = document.querySelectorAll(".klasicax");
 			[].forEach.call(elems, function(el) {
 				el.classList.add("klasicay");
 				el.classList.add("btn");
@@ -954,7 +954,7 @@ function pag_arrow_lim(phpdoc,input_id,limit){
 				el.classList.add("podaci");
 			});
 	
-			document.getElementById("trash"+klik).className = "klasicax btn btn-info btn-sm podaci";*/
+			document.getElementById("trash"+(klik+1)).className = "klasicax btn btn-info btn-sm podaci";
       
 		}
 

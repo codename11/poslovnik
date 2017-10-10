@@ -99,6 +99,18 @@ AND tel_broj.kategorija_FK=tel_kategorija.id LIMIT $limit OFFSET $offset";
 		echo "<span id='jork'>";
 			for($i=0;$i<$page_count;$i++){
 					$br_str++;
+					
+					if($br_str>=2){
+						$marg_left="margin-left: 3px;";
+					}
+					
+					if($br_str==1){
+						$klasicax=" klasicax";
+					}
+					else{
+						$klasicax="";
+					}
+					
 					?>
 					
 					<button style="<?php echo $marg_left?>" type="button" id="trash<?php echo $br_str?>" name='but' class="btn btn-info btn-sm podaci<?php echo $klasicax ?>" onclick="myfunk('izvestaj3.php',<?php echo $br_str?>, 5)"><?php echo $br_str?></button>
